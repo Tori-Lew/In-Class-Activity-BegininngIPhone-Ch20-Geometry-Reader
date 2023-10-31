@@ -9,11 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
+        GeometryReader { geo in
             Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
+                .resizable()
+                .scaledToFit()
+                .frame(width: geo.size.width, height: geo.size.height * 0.5, alignment: .center)
+                //.frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                .foregroundStyle(.cyan)
+                .opacity(0.3)
             Text("Hello, world!")
+                .scaledToFit()
+                .font(.title)
+                .frame(width: geo.size.width * 0.9, alignment: .leading)
+                
         }
         .padding()
     }
